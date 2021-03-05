@@ -1,20 +1,14 @@
-<?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
-use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
+use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\AbstractPostController;
 use Koen\AcademyBlogCore\Api\PostRepositoryInterface;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\PageFactory as ResultPageFactory;
-use Magento\Framework\View\Result\PageFactory;
 
-class Edit extends Post
+class Edit extends AbstractPostController
 {
     /** @var ResultPageFactory */
     protected $resultPageFactory;
@@ -43,7 +37,7 @@ class Edit extends Post
         $id = (int)$this->getRequest()->getParam('id');
         $post = $this->postRepository->create();
 
-        if (!empty($id)) {
+        if ($id) {
             $post = $this->postRepository->get($id);
 
             if (!$post->getId()) {

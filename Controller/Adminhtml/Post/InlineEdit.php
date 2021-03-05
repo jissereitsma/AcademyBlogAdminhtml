@@ -1,19 +1,14 @@
-<?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
+use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\AbstractPostController;
 use Koen\AcademyBlogCore\Api\PostRepositoryInterface;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory as ResultJsonFactory;
 use Magento\Framework\Controller\ResultInterface;
-use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
-class InlineEdit extends Post
+class InlineEdit extends AbstractPostController
 {
     /** @var ResultJsonFactory */
     protected $resultJsonFactory;

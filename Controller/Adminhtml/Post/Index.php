@@ -1,13 +1,10 @@
-<?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
-class Index extends \Magento\Backend\App\Action
+use Magento\Backend\App\Action;
+
+class Index extends Action
 {
 
     protected $resultPageFactory;
@@ -22,8 +19,8 @@ class Index extends \Magento\Backend\App\Action
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
     ) {
-        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     /**

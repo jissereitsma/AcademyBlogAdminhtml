@@ -7,7 +7,7 @@ use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Page;
 
-abstract class Post extends Action
+abstract class AbstractPostController extends Action
 {
     const ADMIN_RESOURCE = 'Koen_AcademyBlogAdminhtml::top_level';
 

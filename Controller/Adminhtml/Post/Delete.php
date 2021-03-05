@@ -1,13 +1,10 @@
-<?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
-class Delete extends \Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post
+use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\AbstractPostController;
+
+class Delete extends AbstractPostController
 {
 
     /**

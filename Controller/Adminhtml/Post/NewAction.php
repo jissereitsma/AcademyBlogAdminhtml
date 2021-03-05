@@ -2,12 +2,12 @@
 
 namespace Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
 
-use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\Post;
+use Koen\AcademyBlogAdminhtml\Controller\Adminhtml\AbstractPostController;
 use Koen\AcademyBlogCore\Api\PostRepositoryInterface;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\ForwardFactory;
 
-class NewAction extends Post
+class NewAction extends AbstractPostController
 {
     protected $forwardFactory;
 
