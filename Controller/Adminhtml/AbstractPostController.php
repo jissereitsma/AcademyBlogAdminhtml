@@ -37,6 +37,7 @@ abstract class AbstractPostController extends Action
         $resultPage->setActiveMenu(self::ADMIN_RESOURCE)
             ->addBreadcrumb(__('Koen'), __('Koen'))
             ->addBreadcrumb(__('Post'), __('Post'));
+
         return $resultPage;
     }
 }

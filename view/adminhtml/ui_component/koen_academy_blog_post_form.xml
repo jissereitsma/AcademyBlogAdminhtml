@@ -2,40 +2,38 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">koen_academy_blog_post_form.post_form_data_source</item>
+            <item name="provider" xsi:type="string">koen_academy_blog_post_index.koen_academy_blog_post_index_data_source</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
 
     <settings>
-        <label>General Information</label>
+        <spinner>koen_academy_blog_post_cloumns</spinner>
+        <deps>
+            <dep>koen_academy_blog_post_index.koen_academy_blog_post_index_data_source</dep>
+        </deps>
         <buttons>
             <button name="back"> <!-- <button name="back" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\BackButton"/> -->
                 <label translate="true">Back</label>
                 <url path="koen_academy_blog/post/index"/>
             </button>
-            <button name="delete" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\DeleteButton"/>
-            <button name="save" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\SaveButton"/>
-            <button name="save_and_continue" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\SaveAndContinueButton"/>
+            <button name="save">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add new Post</label>
+            </button>
+<!--            <button name="delete" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\DeleteButton"/>-->
+<!--            <button name="save" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\SaveButton"/>-->
+<!--            <button name="save_and_continue" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\SaveAndContinueButton"/>-->
         </buttons>
-        <namespace>koen_academy_blog_post_form</namespace>
-        <dataScope>data</dataScope>
-        <deps>
-            <dep>koen_academy_blog_post_form.post_form_data_source</dep>
-        </deps>
     </settings>
 
-    <dataSource name="post_form_data_source">
-        <argument name="data" xsi:type="array">
-            <item name="js_config" xsi:type="array">
-                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
-            </item>
-        </argument>
+    <dataSource name="koen_academy_blog_post_index_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
-            <validateUrl path="*/*/validate"/>
-            <submitUrl path="*/*/save"/>
+            <updateUrl path="mui/index/render"/>
         </settings>
-        <dataProvider name="post_form_data_source" class="Koen\AcademyBlogAdminhtml\Model\Post\DataProvider">
+        <aclResource>Koen_AcademyBlogAdminhtml::Post</aclResource>
+        <dataProvider name="koen_academy_blog_post_index_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
