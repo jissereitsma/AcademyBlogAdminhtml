@@ -2,15 +2,17 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">koen_academy_blog_post_index.koen_academy_blog_post_index_data_source</item>
+            <item name="provider" xsi:type="string">koen_academy_blog_post_form.koen_academy_blog_post_index_data_source</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
 
     <settings>
-        <spinner>koen_academy_blog_post_cloumns</spinner>
+        <spinner>koen_academy_blog_post_columns</spinner>
+        <namespace>koen_academy_blog_post_form</namespace>
+        <dataScope>data</dataScope>
         <deps>
-            <dep>koen_academy_blog_post_index.koen_academy_blog_post_index_data_source</dep>
+            <dep>koen_academy_blog_post_form.koen_academy_blog_post_index_data_source</dep>
         </deps>
         <buttons>
             <button name="back"> <!-- <button name="back" class="Koen\AcademyBlogAdminhtml\Block\Adminhtml\Post\Edit\BackButton"/> -->
@@ -33,7 +35,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Koen_AcademyBlogAdminhtml::Post</aclResource>
-        <dataProvider name="koen_academy_blog_post_index_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <dataProvider name="koen_academy_blog_post_index_data_source" class="Koen\AcademyBlogAdminhtml\Model\Post\DataProvider">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
